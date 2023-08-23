@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Script to use a REST API"""
 
-import requests
 import csv
+import requests
 from sys import argv
 from sys import exit
 
@@ -31,12 +31,12 @@ if __name__ == "__main__":
         completed_tasks = sum(1 for todo in todos_data if todo['completed'])
 
         with open(file_name, 'w', newline='') as csv_file:
-            csv_writer = csv.writer(csv_file)
+            csv_writer = csv.writer(csv_file, quoting=csv.QUOTE_NONNUMERIC)
             csv_writer.writerow(["USER_ID", "USERNAME",
                                 "TASK_COMPLETED_STATUS", "TASK_TITLE"])
             for todo in todos_data:
-                csv_writer.writerow([user_id, employee_name,
-                                     todo['completed'], todo['title']])
+                csv_writer.writerow([employee_id, employee_name,
+                                     str(todo['completed']), todo['title']])
 
         print(f'Employee {employee_name} is done with tasks'
               f'({completed_tasks}/{total_tasks}):')
