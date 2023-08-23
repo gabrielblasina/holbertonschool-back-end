@@ -32,8 +32,7 @@ if __name__ == "__main__":
 
         with open(file_name, 'w', newline='') as csv_file:
             csv_writer = csv.writer(csv_file, quoting=csv.QUOTE_NONNUMERIC)
-            csv_writer.writerow(["USER_ID", "USERNAME",
-                                "TASK_COMPLETED_STATUS", "TASK_TITLE"])
+
             for todo in todos_data:
                 csv_writer.writerow([employee_id, employee_name,
                                      str(todo['completed']), todo['title']])
