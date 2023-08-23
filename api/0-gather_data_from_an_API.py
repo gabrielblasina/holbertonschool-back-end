@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+"""Script to use a REST API"""
+
 import requests
 from sys import argv
 from sys import exit
